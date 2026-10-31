@@ -1,6 +1,9 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.core.config import settings
 from app.core.database import engine, SessionLocal
@@ -69,5 +72,26 @@ def health_check():
         "application": settings.APP_NAME,
         "version": settings.APP_VERSION,
         "tagline": "Turning Urban Data Into Intelligent Decisions.",
+    }
+
+
+FRONTEND_DIST_DIR = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+if (FRONTEND_DIST_DIR / "assets").exists():
+    app.mount("/assets", StaticFiles(directory=str(FRONTEND_DIST_DIR / "assets")), name="frontend-assets")
+
+
+@app.get("/{full_path:path}", include_in_schema=False)
+def serve_frontend_spa(full_path: str):
+    index_file = FRONTEND_DIST_DIR / "index.html"
+    if index_file.exists():
+        candidate = (FRONTEND_DIST_DIR / full_path).resolve()
+        if full_path and candidate.is_file() and str(candidate).startswith(str(FRONTEND_DIST_DIR.resolve())):
+            return FileResponse(str(candidate))
+        return FileResponse(str(index_file))
+    return {
+        "application": settings.APP_NAME,
+        "status": "running",
+        "frontend_dev_url": "http://localhost:5173",
+        "api_docs_url": "http://127.0.0.1:8000/docs",
     }
 
