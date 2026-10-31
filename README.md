@@ -31,7 +31,7 @@ NagarNexus is a full-stack Data Science, Machine Learning, and Geospatial Urban 
 ### Backend
 
 ```powershell
-cd backend
+cd "C:\Users\Bharanidharan\Downloads\NagarNexus\backend"
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -41,7 +41,7 @@ uvicorn app.main:app --reload
 ### Frontend
 
 ```powershell
-cd frontend
+cd "C:\Users\Bharanidharan\Downloads\NagarNexus\frontend"
 npm install
 npm run dev
 ```

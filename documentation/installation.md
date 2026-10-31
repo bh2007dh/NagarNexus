@@ -7,7 +7,7 @@
 Open Windows PowerShell in the `NagarNexus` root directory:
 
 ```powershell
-cd backend
+cd "C:\Users\Bharanidharan\Downloads\NagarNexus\backend"
 
 # Create virtual environment (if not already created)
 python -m venv .venv
@@ -34,10 +34,10 @@ uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 
 ### Step B: Start the Frontend Development Server
 
-Open a second Windows PowerShell terminal in the `NagarNexus` root directory:
+Open a second Windows PowerShell terminal:
 
 ```powershell
-cd frontend
+cd "C:\Users\Bharanidharan\Downloads\NagarNexus\frontend"
 
 # Install Node.js dependencies
 npm install
