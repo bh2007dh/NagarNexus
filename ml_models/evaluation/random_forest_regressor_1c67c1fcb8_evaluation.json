@@ -1,0 +1,51 @@
+{
+  "task_type": "regression",
+  "split_method": "random_stratified_holdout",
+  "train_samples": 11,
+  "test_samples": 4,
+  "MAE": 10.0933,
+  "MSE": 182.9817,
+  "RMSE": 13.5271,
+  "R2_score": 0.7172,
+  "residual_std": 12.0728,
+  "feature_importances": [
+    {
+      "feature": "temperature_c",
+      "importance": 0.4359
+    },
+    {
+      "feature": "humidity_pct",
+      "importance": 0.3833
+    },
+    {
+      "feature": "rainfall_mm",
+      "importance": 0.1808
+    }
+  ],
+  "validation_predictions": [
+    {
+      "index": 1,
+      "actual": 61.0,
+      "predicted": 53.51,
+      "residual": 7.49
+    },
+    {
+      "index": 2,
+      "actual": 25.0,
+      "predicted": 32.9833,
+      "residual": -7.9833
+    },
+    {
+      "index": 3,
+      "actual": 45.2,
+      "predicted": 45.04,
+      "residual": 0.16
+    },
+    {
+      "index": 4,
+      "actual": 94.55,
+      "predicted": 69.81,
+      "residual": 24.74
+    }
+  ]
+}

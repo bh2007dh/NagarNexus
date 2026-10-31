@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: nagarnexus-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-nagarnexus}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nagarnexus_secure_pwd}
+      POSTGRES_DB: ${POSTGRES_DB:-nagarnexus_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nagarnexus} -d ${POSTGRES_DB:-nagarnexus_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: nagarnexus-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-nagarnexus}:${POSTGRES_PASSWORD:-nagarnexus_secure_pwd}@postgres:5432/${POSTGRES_DB:-nagarnexus_db}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-change-this-in-production-super-secret-jwt-key-256bit}
+      ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      STORAGE_DIR: /app/datasets
+      UPLOAD_DIR: /app/backend/uploads
+      REPORTS_DIR: /app/backend/generated_reports
+      MODELS_DIR: /app/ml_models/trained
+      CORS_ORIGINS: http://localhost:5173,http://localhost:3000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./datasets:/app/datasets
+      - ./ml_models:/app/ml_models
+      - ./backend/uploads:/app/backend/uploads
+      - ./backend/generated_reports:/app/backend/generated_reports
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: nagarnexus-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000/api
+    ports:
+      - "5173:5173"
+
+volumes:
+  postgres_data:
+

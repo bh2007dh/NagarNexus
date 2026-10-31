@@ -1,0 +1,163 @@
+{
+  "task_type": "clustering",
+  "n_clusters": 3,
+  "total_samples": 15,
+  "silhouette_score": 0.4875,
+  "inertia": 10.3388,
+  "silhouette_curve": [
+    {
+      "k": 2,
+      "silhouette_score": 0.5076
+    },
+    {
+      "k": 3,
+      "silhouette_score": 0.4875
+    },
+    {
+      "k": 4,
+      "silhouette_score": 0.4804
+    },
+    {
+      "k": 5,
+      "silhouette_score": 0.4518
+    },
+    {
+      "k": 6,
+      "silhouette_score": 0.4837
+    },
+    {
+      "k": 7,
+      "silhouette_score": 0.4244
+    }
+  ],
+  "cluster_profiles": [
+    {
+      "cluster_id": 0,
+      "cluster_label": "Cluster 0",
+      "sample_count": 3,
+      "share_pct": 20.0,
+      "feature_means": {
+        "temperature_c": 30.733,
+        "rainfall_mm": 46.75,
+        "humidity_pct": 88.333,
+        "pm25": 29.167
+      }
+    },
+    {
+      "cluster_id": 1,
+      "cluster_label": "Cluster 1",
+      "sample_count": 5,
+      "share_pct": 33.33,
+      "feature_means": {
+        "temperature_c": 36.22,
+        "rainfall_mm": 1.4,
+        "humidity_pct": 59.8,
+        "pm25": 71.33
+      }
+    },
+    {
+      "cluster_id": 2,
+      "cluster_label": "Cluster 2",
+      "sample_count": 7,
+      "share_pct": 46.67,
+      "feature_means": {
+        "temperature_c": 32.814,
+        "rainfall_mm": 12.3,
+        "humidity_pct": 72.357,
+        "pm25": 44.814
+      }
+    }
+  ],
+  "pca_scatter": [
+    {
+      "pc1": 0.2043,
+      "pc2": -0.5101,
+      "cluster": "Cluster 2",
+      "cluster_id": 2
+    },
+    {
+      "pc1": 0.1174,
+      "pc2": -0.1684,
+      "cluster": "Cluster 2",
+      "cluster_id": 2
+    },
+    {
+      "pc1": -0.8802,
+      "pc2": -0.6636,
+      "cluster": "Cluster 2",
+      "cluster_id": 2
+    },
+    {
+      "pc1": -1.3414,
+      "pc2": -0.0865,
+      "cluster": "Cluster 1",
+      "cluster_id": 1
+    },
+    {
+      "pc1": 2.1981,
+      "pc2": 0.6048,
+      "cluster": "Cluster 0",
+      "cluster_id": 0
+    },
+    {
+      "pc1": 2.9233,
+      "pc2": 0.7455,
+      "cluster": "Cluster 0",
+      "cluster_id": 0
+    },
+    {
+      "pc1": -2.3408,
+      "pc2": 0.2275,
+      "cluster": "Cluster 1",
+      "cluster_id": 1
+    },
+    {
+      "pc1": -0.2597,
+      "pc2": -0.2954,
+      "cluster": "Cluster 2",
+      "cluster_id": 2
+    },
+    {
+      "pc1": 1.1386,
+      "pc2": -0.1801,
+      "cluster": "Cluster 2",
+      "cluster_id": 2
+    },
+    {
+      "pc1": -1.2275,
+      "pc2": -0.2732,
+      "cluster": "Cluster 1",
+      "cluster_id": 1
+    },
+    {
+      "pc1": -1.9308,
+      "pc2": -0.0207,
+      "cluster": "Cluster 1",
+      "cluster_id": 1
+    },
+    {
+      "pc1": 3.4884,
+      "pc2": 0.42,
+      "cluster": "Cluster 0",
+      "cluster_id": 0
+    },
+    {
+      "pc1": 0.1705,
+      "pc2": -0.4978,
+      "cluster": "Cluster 2",
+      "cluster_id": 2
+    },
+    {
+      "pc1": -3.6478,
+      "pc2": 1.2209,
+      "cluster": "Cluster 1",
+      "cluster_id": 1
+    },
+    {
+      "pc1": 1.3877,
+      "pc2": -0.5231,
+      "cluster": "Cluster 2",
+      "cluster_id": 2
+    }
+  ]
+}

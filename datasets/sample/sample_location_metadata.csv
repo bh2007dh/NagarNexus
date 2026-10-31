@@ -1,0 +1,6 @@
+locality_code,name,city,state,latitude,longitude,geographical_resolution,elevation_m,zone_type,data_nature
+LOC-M1,North Coastal Industrial Corridor (Sample Zone),Metro Coastal Belt,Tamil Nadu,13.1485,80.296,locality_benchmark_grid,6.5,Industrial & Port Corridor,Synthetic Benchmark Metadata
+LOC-M2,Central Commercial Transit Hub (Sample Zone),Metro Coastal Belt,Tamil Nadu,13.0418,80.2341,locality_benchmark_grid,11.0,High-Density Commercial,Synthetic Benchmark Metadata
+LOC-M3,South IT & Wetland Basin (Sample Zone),Metro Coastal Belt,Tamil Nadu,12.9716,80.2206,locality_benchmark_grid,4.2,Low-Lying Floodplain & Tech Corridor,Synthetic Benchmark Metadata
+LOC-M4,West Suburban Green Canopy (Sample Zone),Metro Inland Belt,Tamil Nadu,13.0102,80.1415,locality_benchmark_grid,19.5,Residential & Vegetated Zone,Synthetic Benchmark Metadata
+LOC-M5,East Shoreline Microclimate Station (Sample Zone),Metro Coastal Belt,Tamil Nadu,13.0005,80.2668,monitoring_station_benchmark,5.0,Coastal Marine Boundary,Synthetic Benchmark Metadata
